@@ -1,4 +1,4 @@
-# Soft Glass Launcher
+![Soft Glass Launcher — Android TV and Google TV](docs/images/cover.png)
 
 A lightweight native launcher for **Android TV and Google TV (Android 8+)**, with glass surfaces and remote-friendly navigation.
 
@@ -8,6 +8,18 @@ A lightweight native launcher for **Android TV and Google TV (Android 8+)**, wit
 - Light, dark and system themes, Manrope typography and reduced motion.
 - Optional weather, local WiZ on/off controls, Stremio Continue Watching and a Spotify mini player.
 - First-run setup for appearance, apps, city, connections and Home. Every integration is optional.
+
+## Screenshots
+
+Captured on a TCL Google TV. Installed apps and connections vary by setup.
+
+### Home
+
+![Home with Stremio Continue Watching, Spotify mini player and the app slider](docs/images/home-dark.png)
+
+### Widgets
+
+![Apps, inputs, search, weather, WiZ lights and connection widgets](docs/images/widgets-dark.png)
 
 ## Install
 
