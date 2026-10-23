@@ -1,0 +1,12 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp" android:height="20dp" android:viewportWidth="24" android:viewportHeight="24">
+    <group android:name="level_one" android:pivotY="12" android:scaleY="0.35">
+        <path android:fillColor="#FF1ED760" android:pathData="M4,3a1.5,1.5 0,0 1,1.5 1.5v15a1.5,1.5 0,0 1,-3 0v-15A1.5,1.5 0,0 1,4 3Z" />
+    </group>
+    <group android:name="level_two" android:pivotY="12" android:scaleY="0.85">
+        <path android:fillColor="#FF1ED760" android:pathData="M12,3a1.5,1.5 0,0 1,1.5 1.5v15a1.5,1.5 0,0 1,-3 0v-15A1.5,1.5 0,0 1,12 3Z" />
+    </group>
+    <group android:name="level_three" android:pivotY="12" android:scaleY="0.6">
+        <path android:fillColor="#FF1ED760" android:pathData="M20,3a1.5,1.5 0,0 1,1.5 1.5v15a1.5,1.5 0,0 1,-3 0v-15A1.5,1.5 0,0 1,20 3Z" />
+    </group>
+</vector>

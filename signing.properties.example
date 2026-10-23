@@ -1,0 +1,4 @@
+storeFile=/absolute/path/to/softglass-release.p12
+storePassword=CHANGE_ME
+keyAlias=softglass-release
+keyPassword=CHANGE_ME

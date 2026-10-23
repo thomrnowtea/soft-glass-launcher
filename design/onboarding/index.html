@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Soft Glass Launcher · Setup</title>
+  <link rel="stylesheet" href="onboarding.css">
+  <script src="onboarding.js" defer></script>
+</head>
+<body>
+  <div class="preview-tools" aria-label="Prototype controls">
+    <a href="../launcher/index.html">← Launcher</a>
+    <span>Interactive prototype · demo data</span>
+    <button id="language" type="button">Español</button>
+    <button id="reset" type="button">Restart setup</button>
+  </div>
+  <main class="setup" data-theme="dark">
+    <aside class="sidebar">
+      <div class="identity"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="6" width="28" height="28" rx="9"/><rect x="7" y="13" width="28" height="28" rx="9"/></svg><span>Soft Glass<br>Launcher</span></div>
+      <nav id="steps" aria-label="Setup steps"></nav>
+      <p class="remote-hint" id="remote-hint">Use the arrows to move.<br>Press OK to choose.</p>
+    </aside>
+    <section class="workspace" aria-labelledby="title">
+      <header><p id="eyebrow"></p><h1 id="title"></h1><p id="description"></p></header>
+      <div id="content" class="content"></div>
+      <footer><button id="back" class="secondary" type="button">Back</button><div class="footer-note" id="footer-note"></div><button id="later" class="secondary" type="button">Skip</button><button id="next" class="primary" type="button">Continue <span aria-hidden="true">→</span></button></footer>
+    </section>
+  </main>
+  <p class="preview-note" id="preview-note" role="status" aria-live="polite">Connections and system actions are simulated here. No account or TV settings are changed.</p>
+</body>
+</html>

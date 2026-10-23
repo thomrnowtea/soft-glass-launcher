@@ -1,0 +1,42 @@
+/* Material stays on the controls; the app rail retains its unboxed banners. */
+.screen{
+  --glass-fill:rgba(52,55,61,.6);
+  --glass-sheen:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.025) 52%,rgba(0,0,0,.08));
+  --glass-edge:rgba(255,255,255,.15);
+  --glass-light:rgba(255,255,255,.24);
+  --glass-shadow:rgba(0,0,0,.12);
+}
+.screen[data-theme=light]{
+  --control:rgba(184,184,188,.35);
+  --surface-alt:#e4e4e6;
+  --glass-fill:rgba(194,194,198,.45);
+  --glass-sheen:linear-gradient(145deg,rgba(255,255,255,.5),rgba(255,255,255,.1) 45%,rgba(98,98,102,.06));
+  --glass-edge:rgba(58,58,62,.12);
+  --glass-light:rgba(255,255,255,.85);
+  --glass-shadow:rgba(52,52,56,.1);
+}
+.utility,.source,.panel-close,.setting-tile:not(:focus),.spotify-notch-link::before{
+  background:var(--glass-sheen),var(--glass-fill);
+  box-shadow:inset 0 1px 0 var(--glass-light),inset 0 0 0 1px var(--glass-edge),0 5px 15px -10px var(--glass-shadow);
+  backdrop-filter:blur(12px) saturate(115%);
+  -webkit-backdrop-filter:blur(12px) saturate(115%);
+}
+.screen[data-theme=light] .quick-panel{
+  background:linear-gradient(145deg,rgba(252,252,253,.94),rgba(235,235,238,.96));
+  box-shadow:inset 0 1px 0 #ffffffd9,inset 0 0 0 1px #55555a1a,0 20px 60px -30px #34343830;
+  backdrop-filter:blur(16px) saturate(110%);
+  -webkit-backdrop-filter:blur(16px) saturate(110%);
+}
+.screen[data-theme=light] .widget{
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(239,239,242,.97));
+  box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px #62626814;
+}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){
+  .utility,.source,.panel-close,.setting-tile:not(:focus),.spotify-notch-link::before,
+  .screen[data-theme=light] .quick-panel,.screen[data-theme=light] .widget{
+    background:var(--surface-alt);
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    box-shadow:inset 0 0 0 1px var(--focus);
+  }
+}

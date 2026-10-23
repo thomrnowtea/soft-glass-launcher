@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Soft Glass Launcher — design preview</title>
+  <link rel="stylesheet" href="rail.css">
+  <link rel="stylesheet" href="spotify-notch.css">
+  <link rel="stylesheet" href="materials.css">
+  <link rel="stylesheet" href="widgets.css">
+  <link rel="stylesheet" href="customization.css">
+  <link rel="stylesheet" href="glass-ui.css">
+  <script src="directional-navigation.js" defer></script>
+  <script src="press-actions.js" defer></script>
+  <script src="rail.js" defer></script>
+  <script src="commands.js" defer></script>
+</head>
+<body>
+<a href="../onboarding/index.html" style="position:fixed;z-index:100;top:8px;left:12px;color:inherit;font:13px Manrope,sans-serif">Soft Glass Launcher · Setup prototype →</a>
+<header class="preview-tools">
+  <div><strong>Soft Glass Launcher</strong><span>Design preview · illustrative content · no TV connection</span></div>
+  <nav aria-label="Preview views">
+    <button data-preview="home" aria-pressed="true">Home</button>
+    <button data-preview="lower" aria-pressed="false">Inputs & Search</button>
+    <button data-preview="settings" aria-pressed="false">Settings</button>
+    <button id="theme-preview" aria-pressed="false">Light theme</button>
+    <label class="spotify-demo-control">Spotify
+      <select id="spotify-preview" aria-label="Spotify playback example">
+        <option value="off">Not playing</option>
+        <option value="playing">Playing · demo</option>
+      </select>
+    </label>
+  </nav>
+</header>
+<main class="preview-main">
+<div class="viewport" id="viewport">
+<div class="screen" id="screen" data-theme="dark" data-page="home">
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5a6 6 0 1 1 7 0L15 17H9z"/></symbol>
+<symbol id="weather" viewBox="0 0 32 32"><path d="M13 4V1M5 8 3 6M21 8l2-2M3 15H0M9 21a8 8 0 1 1 12-9"/><path d="M11 27a5 5 0 1 1 0-10 7 7 0 0 1 13-1 5.5 5.5 0 1 1 1 11z"/></symbol>
+<symbol id="settings" viewBox="0 0 24 24"><path d="m10 3-.5 3-2.4 1.4-2.9-1-2 3.3 2.3 2v2.7l-2.3 2 2 3.3 2.9-1L9.5 20l.5 3h4l.5-3 2.4-1.3 2.9 1 2-3.3-2.3-2v-2.7l2.3-2-2-3.3-2.9 1L14.5 6 14 3z" transform="translate(1 -1) scale(.91)"/><circle cx="12" cy="11.9" r="3.2"/></symbol>
+<symbol id="inputs" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M8 22h8M12 18v4M1 11h10M8 8l3 3-3 3"/></symbol>
+<symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><rect x="16" y="16" width="5" height="5" rx="1"/></symbol>
+<symbol id="chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="cloud" viewBox="0 0 32 32"><path d="M9 25a6 6 0 1 1 0-12 8 8 0 0 1 15-1 6.5 6.5 0 1 1 1 13z"/></symbol>
+<symbol id="rain" viewBox="0 0 32 32"><path d="M9 21a5 5 0 1 1 0-10 7 7 0 0 1 13-1 5.5 5.5 0 1 1 1 11zM11 26l-1 3M18 26l-1 3M25 26l-1 3"/></symbol>
+<symbol id="pencil" viewBox="0 0 24 24"><path d="m15.5 4.5 4 4M4 20l4.5-1 12-12a2.8 2.8 0 0 0-4-4L4.5 15z"/></symbol>
+<symbol id="wifi" viewBox="0 0 24 24"><path d="M2 8a16 16 0 0 1 20 0M5 12a11 11 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="20" r=".6" fill="currentColor"/></symbol>
+<symbol id="hdmi" viewBox="0 0 24 24"><path d="M4 8h16v7l-3 3H7l-3-3zM8 18v4M16 18v4M8 8V4M12 8V4M16 8V4"/></symbol>
+<symbol id="plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+<symbol id="play-store" viewBox="0 0 40 40"><path fill="none" d="M0,0h40v40H0V0z"/><g><path d="M19.7,19.2L4.3,35.3c0,0,0,0,0,0c0.5,1.7,2.1,3,4,3c0.8,0,1.5-0.2,2.1-0.6l0,0l17.4-9.9L19.7,19.2z" fill="#EA4335"/><path d="M35.3,16.4L35.3,16.4l-7.5-4.3l-8.4,7.4l8.5,8.3l7.5-4.2c1.3-0.7,2.2-2.1,2.2-3.6C37.5,18.5,36.6,17.1,35.3,16.4z" fill="#FBBC04"/><path d="M4.3,4.7C4.2,5,4.2,5.4,4.2,5.8v28.5c0,0.4,0,0.7,0.1,1.1l16-15.7L4.3,4.7z" fill="#4285F4"/><path d="M19.8,20l8-7.9L10.5,2.3C9.9,1.9,9.1,1.7,8.3,1.7c-1.9,0-3.6,1.3-4,3c0,0,0,0,0,0L19.8,20z" fill="#34A853"/></g></symbol>
+<symbol id="play-store-mono" viewBox="0 0 40 40">
+ <path fill="currentColor" d="M4.2 7.2v25.6L17.6 20Z"/>
+ <path fill="currentColor" d="M5.7 3.8c.7-.9 1.6-1.3 2.6-1.3.7 0 1.3.2 1.8.5l16.2 9.1-6.4 6.3Z"/>
+ <path fill="currentColor" d="M5.7 36.2c.7.9 1.6 1.3 2.6 1.3.7 0 1.3-.2 1.8-.5l16.2-9.1-6.4-6.3Z"/>
+ <path fill="currentColor" d="m21.4 20 7-6.7 6.5 3.8c1 .6 1.8 1.7 1.8 2.9s-.8 2.3-1.8 2.9l-6.5 3.8Z"/>
+</symbol>
+</defs></svg>
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="tv" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5zM15 8a6 6 0 0 1 0 8M18 4a11 11 0 0 1 0 16"/></symbol>
+  <symbol id="power" viewBox="0 0 24 24"><path d="M12 3v9M6.5 5.5a9 9 0 1 0 11 0"/></symbol>
+  <symbol id="power-off" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+  <symbol id="microphone" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="13" rx="4"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></symbol>
+  <symbol id="picture" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/></symbol>
+  <symbol id="customize" viewBox="0 0 24 24"><path d="M4 6h7m5 0h4M4 12h2m5 0h9M4 18h10m5 0h1"/><circle cx="13.5" cy="6" r="2.5"/><circle cx="8.5" cy="12" r="2.5"/><circle cx="16.5" cy="18" r="2.5"/></symbol>
+  <symbol id="accessibility" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="m4 8 8 2 8-2M12 10v5m0 0-4 6m4-6 4 6"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="left" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></symbol>
+  <symbol id="right" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path d="m7 4 14 8-14 8z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="brand-stremio" viewBox="0 0 100 100"><defs><linearGradient id="stremio-brand" x2="1" y2="1"><stop stop-color="#947ef8"/><stop offset=".55" stop-color="#6557da"/><stop offset="1" stop-color="#39479a"/></linearGradient></defs><rect x="16" y="16" width="68" height="68" rx="9" transform="rotate(45 50 50)" fill="url(#stremio-brand)"/><path fill="white" d="m40 30 29 20-29 20z"/></symbol>
+  <symbol id="brand-tube" viewBox="0 0 72 52"><rect y="2" width="72" height="48" rx="13" fill="#f22a28"/><path d="m29 14 22 12-22 12z" fill="white"/></symbol>
+  <symbol id="brand-spotify" viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#1ed760"/><g fill="none" stroke="#0b0c0c" stroke-linecap="round"><path d="M15 24c12-6 25-4 36 2" stroke-width="5"/><path d="M17 34c11-5 21-3 30 2" stroke-width="4.3"/><path d="M20 43c9-3 16-2 24 2" stroke-width="3.7"/></g></symbol>
+</defs></svg>
+<div class="backdrop" aria-hidden="true"></div>
+<div class="backdrop-shade" aria-hidden="true"></div>
+<div class="widgets-shade" aria-hidden="true"></div>
+<div class="page-content" id="page-content">
+  <header class="tv-header">
+    <div class="time">21:14</div><div class="date">Wednesday<br>21 October</div>
+    <nav class="utilities" aria-label="Home controls" data-focus-row="header">
+      <button class="weather-peek" data-panel="weather" aria-label="Palermo weather"><svg class="icon"><use href="#weather"/></svg><span>18°<small>Palermo</small></span></button>
+      <div class="spotify-notch" id="spotify-notch" hidden>
+        <a class="spotify-notch-link" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Spotify — Midnight City by M83" title="Open Spotify">
+          <span class="spotify-notch-art"><img src="spotify-cover.svg" alt=""><svg class="spotify-notch-brand" aria-hidden="true"><use href="#brand-spotify"/></svg></span>
+          <span class="spotify-notch-copy"><strong>Midnight City</strong><span>M83</span></span>
+          <span class="spotify-notch-levels" aria-hidden="true"><i></i><i></i><i></i></span>
+        </a>
+      </div>
+      <button class="utility" data-panel="lights" aria-label="Lights"><svg class="icon"><use href="#bulb"/></svg></button>
+      <button class="utility" data-system="Play Store" aria-label="Google Play Store"><svg class="store-icon"><use href="#play-store-mono"/></svg></button>
+      <button class="utility tv-shortcut" data-system="TV" aria-label="TV — live television"><svg class="icon"><use href="#tv"/></svg><span>TV</span></button>
+      <button class="utility" id="settings-trigger" data-panel="settings" aria-label="Settings"><svg class="icon"><use href="#settings"/></svg></button>
+    </nav>
+  </header>
+  <section class="hero" aria-label="Continue Watching">
+    <p class="queue-heading">Continue Watching</p>
+    <div class="title-space"><h1>TENZING</h1></div>
+    <p class="remaining">38 min remaining</p>
+    <div class="progress" role="progressbar" aria-label="Playback progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68"><span></span></div>
+    <div data-focus-row="resume"><button class="continue" data-system="Continue in Stremio"><svg class="icon"><use href="#play"/></svg>Continue in Stremio</button></div>
+    <nav class="pagination" aria-label="Continue Watching titles" data-focus-row="pagination">
+      <button aria-label="Previous title" data-title-step="-1"><svg class="icon"><use href="#left"/></svg></button>
+      <div class="dots" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
+      <button aria-label="Next title" data-title-step="1"><svg class="icon"><use href="#right"/></svg></button>
+      <span id="title-position">1 / 3</span>
+    </nav>
+  </section>
+  <section class="app-section" aria-labelledby="apps-heading">
+    <div class="rail-heading"><h2 id="apps-heading">Apps</h2><span class="rail-position" id="rail-position" aria-live="off">1–6 / 12</span></div>
+    <div class="rail-viewport"><div class="app-track" id="app-track" data-focus-row="apps"></div></div>
+  </section>
+  <section class="home-controls" aria-label="Home shortcuts and devices">
+    <div class="control-groups" data-focus-row="controls">
+      <section class="inputs-group" data-widget="inputs"><h2>Inputs</h2><div class="input-items">
+        <button class="source" data-system="AV"><svg class="icon"><use href="#inputs"/></svg><span>AV</span></button>
+        <button class="source" data-system="HDMI 1"><svg class="icon"><use href="#hdmi"/></svg><span>HDMI 1</span></button>
+        <button class="source" data-system="HDMI 2"><svg class="icon"><use href="#hdmi"/></svg><span>HDMI 2</span></button>
+        <button class="source" data-system="HDMI 3"><svg class="icon"><use href="#hdmi"/></svg><span>HDMI 3</span></button>
+      </div></section>
+      <section class="search-group" data-widget="search" aria-labelledby="search-heading">
+        <h2 id="search-heading"><label for="tv-command">Search</label></h2>
+        <form class="command-box" id="command-form" role="search" aria-label="Search movies, music or apps">
+          <input id="tv-command" type="text" maxlength="240" placeholder="Movies, music or apps" aria-label="What would you like to watch, listen to or install?" autocomplete="off" enterkeyhint="search">
+          <button class="command-action" id="voice-command" type="button" aria-label="Speak a command" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#microphone"/></svg></button>
+          <button class="command-action" type="submit" aria-label="Search"><svg class="icon" aria-hidden="true"><use href="#search"/></svg></button>
+        </form>
+        <output class="command-result" id="command-result" aria-live="polite" hidden></output>
+      </section>
+    </div>
+    <div class="widgets" data-focus-row="widgets">
+      <button class="forecast widget" data-widget="weather" data-panel="weather" aria-label="Palermo forecast, 18 degrees, cloudy">
+        <div class="widget-heading"><h2 id="weather-city-label">Palermo</h2><span>Weather<svg class="icon"><use href="#right"/></svg></span></div>
+        <div class="forecast-body"><div class="current"><strong><svg class="icon"><use href="#cloud"/></svg>18°</strong><span>Cloudy</span><small>High 19° · Low 14°</small></div>
+        <div class="hours"><div><small>Now</small><svg class="icon"><use href="#cloud"/></svg><span>18°</span></div><div><small>22:00</small><svg class="icon"><use href="#cloud"/></svg><span>17°</span></div><div><small>23:00</small><svg class="icon"><use href="#rain"/></svg><span>17°</span></div><div><small>00:00</small><svg class="icon"><use href="#rain"/></svg><span>16°</span></div></div></div>
+      </button>
+      <div class="right-widgets">
+        <section class="lights widget" data-widget="lights" aria-labelledby="lights-heading">
+          <div class="widget-heading"><h2 id="lights-heading">Lights</h2><svg class="icon" aria-hidden="true"><use href="#bulb"/></svg></div>
+          <div class="light-list" id="home-light-list"></div>
+        </section>
+        <section class="status-widget widget" data-widget="connections" aria-label="TV connection and apps">
+          <button class="status-row" data-system="Wi-Fi" aria-label="Wi-Fi settings, Home Wi-Fi"><svg class="icon" aria-hidden="true"><use href="#wifi"/></svg><span><small>Wi-Fi</small><strong>Home Wi-Fi</strong></span><svg class="icon status-arrow" aria-hidden="true"><use href="#right"/></svg></button>
+          <button class="status-row" data-system="Sound" aria-label="Sound settings, ARC, PCM"><svg class="icon" aria-hidden="true"><use href="#sound"/></svg><span><small>Audio</small><strong>ARC · PCM</strong></span><svg class="icon status-arrow" aria-hidden="true"><use href="#right"/></svg></button>
+          <button class="status-row all-apps-row" data-panel="apps"><svg class="icon" aria-hidden="true"><use href="#grid"/></svg><span>All apps</span><svg class="icon status-arrow" aria-hidden="true"><use href="#right"/></svg></button>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="page-cue" aria-hidden="true"><svg class="icon"><use href="#chevron"/></svg></div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="quick-panel" id="quick-panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden>
+  <header class="panel-heading"><div><h2 id="panel-title">Settings</h2><p id="panel-subtitle">Wednesday, 21 October</p></div><button class="panel-close" id="panel-close" aria-label="Close"><svg class="icon"><use href="#close"/></svg></button></header>
+  <div id="panel-body"></div>
+</aside>
+<div class="app-context" id="app-context" role="dialog" aria-modal="true" aria-labelledby="app-context-title" hidden></div>
+</div>
+</div>
+<div class="preview-caption"><p>Hold an app on the slider to reorder with ← / →. Enter finishes; ↑ / ↓ keeps vertical navigation. In All apps, hold for Add to Home or Remove from Home, and Details. Customize controls all five widgets and the weather city; account links are grouped in Connections. Right-click also opens hold actions in this preview.</p><p id="preview-note" aria-live="polite">Design preview: content, weather, Wi-Fi, audio and connection states are examples. Light controls, Sync, Scan and Android settings are simulated. Search previews app destinations. Voice uses your browser’s speech service if available, only after pressing the microphone.</p></div>
+</main>
+</body>
+</html>

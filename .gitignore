@@ -1,0 +1,32 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+.idea/
+.kotlin/
+*.iml
+*.class
+*.apk
+*.aab
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Private signing and credentials
+signing.properties
+*.keystore
+*.jks
+*.p12
+*.pk8
+*.pem
+.env
+.env.*
+!*.example
+credentials/
+secrets/
+
+# Local artifacts
+captures/
+logs/
+*.log
+.DS_Store
+Thumbs.db

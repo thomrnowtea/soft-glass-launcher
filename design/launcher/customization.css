@@ -1,0 +1,30 @@
+/* Keep focused rows padded inside their highlighted hit area. */
+.status-row{padding:0 20px;gap:16px}
+.status-row+.status-row{border-top:0;position:relative}
+.status-row+.status-row::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:var(--line);pointer-events:none}
+.status-row:focus-visible::before,.status-row:active::before{opacity:0}
+.lights-master{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:28px;width:100%;height:104px;border-radius:20px;background:var(--accent);color:var(--on-accent);font-size:32px;font-weight:500}
+.screen[data-theme=light] .lights-master{background:#65666a;color:#fff}
+.lights-master>.icon,.light-state>.icon{width:38px;height:38px;flex:none}
+.lights-tools{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.lights-tools button{height:104px;border-radius:20px;background:var(--control);font-size:32px}
+.app-options-title{font-size:38px;font-weight:500;margin-bottom:24px}
+.app-options-position{font-size:28px;color:var(--muted);margin-bottom:22px}
+.manage-app-list{display:grid;gap:8px}
+.manage-app-row{display:flex;align-items:center;gap:16px;min-height:112px;width:100%;padding:16px;border-radius:18px;text-align:left}
+.manage-app-row:focus-visible{background:var(--control);outline-offset:0}
+.manage-app-copy{flex:1;min-width:0}
+.manage-app-copy strong{display:block;font-size:32px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.manage-app-copy small{display:block;font-size:28px;color:var(--muted);margin-top:6px}
+.manage-app-row>.icon{width:26px;height:26px}
+.app-track .empty-rail{height:149px;width:265px;border-radius:16px;background:var(--control);font-size:30px}
+.screen[data-arranging=true] .app-tile:focus .app-banner{outline-width:5px}
+.screen[data-arranging=true] .rail-position{font-size:28px;color:var(--ink)}
+.widget-heading h2{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.widget-heading>span{flex-shrink:0}
+.weather-peek small{max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.weather-city-form label{display:block;font-size:28px;color:var(--muted)}
+.weather-city-form .rename-input{margin-top:18px}
+.weather-city-form .save-name{margin-top:24px}
+.panel-row>span{min-width:0}
+.customize-city{display:block;max-width:250px;margin-top:6px;line-height:1.2;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}

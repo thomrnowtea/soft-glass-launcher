@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.LivingPanel" parent="android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:fontFamily">@font/manrope_regular</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>

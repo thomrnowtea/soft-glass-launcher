@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="88dp"
+    android:orientation="horizontal" android:layout_marginTop="18dp">
+
+    <LinearLayout android:id="@+id/homeWeather" android:layout_width="0dp"
+        android:layout_weight="1" android:layout_height="match_parent"
+        android:orientation="vertical" android:gravity="center_vertical"
+        android:paddingStart="20dp" android:paddingEnd="20dp"
+        android:background="@drawable/home_control_bg" android:focusable="true" android:clickable="true"
+        android:nextFocusLeft="@id/homeWeather" android:nextFocusRight="@+id/homeLights"
+        android:nextFocusUp="@id/btnInputs" android:nextFocusDown="@id/grid">
+        <TextView android:id="@+id/homeWeatherLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/hc_weather_home" android:textSize="13sp"
+            android:singleLine="true" android:ellipsize="end"
+            android:fontFamily="@font/manrope_medium" android:duplicateParentState="true"
+            android:textColor="@drawable/pill_text" />
+        <TextView android:id="@+id/homeForecast" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="18sp"
+            android:maxLines="2" android:ellipsize="end" android:fontFamily="@font/manrope_regular"
+            android:duplicateParentState="true" android:textColor="@drawable/pill_text"
+            android:text="@string/hc_loading" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@id/homeLights" android:layout_width="244dp"
+        android:layout_height="match_parent" android:layout_marginStart="14dp"
+        android:orientation="vertical" android:gravity="center_vertical"
+        android:paddingStart="20dp" android:paddingEnd="20dp"
+        android:background="@drawable/home_control_bg" android:focusable="true" android:clickable="true"
+        android:nextFocusLeft="@id/homeWeather" android:nextFocusRight="@id/homeLights"
+        android:nextFocusUp="@id/btnSettings" android:nextFocusDown="@id/grid">
+        <TextView android:id="@+id/homeLightsLabel" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="@string/hc_lights_title"
+            android:textSize="20sp" android:fontFamily="@font/manrope_medium"
+            android:duplicateParentState="true" android:textColor="@drawable/pill_text" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/hc_lights_hint" android:textSize="13sp"
+            android:fontFamily="@font/manrope_regular" android:duplicateParentState="true"
+            android:textColor="@drawable/pill_text" />
+    </LinearLayout>
+</LinearLayout>

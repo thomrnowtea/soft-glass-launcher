@@ -1,0 +1,5 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" android:drawable="@drawable/lr_spotify_levels">
+    <target android:name="level_one" android:animation="@animator/spotify_level_one" />
+    <target android:name="level_two" android:animation="@animator/spotify_level_two" />
+    <target android:name="level_three" android:animation="@animator/spotify_level_three" />
+</animated-vector>

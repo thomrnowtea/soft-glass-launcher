@@ -1,0 +1,27 @@
+.spotify-demo-control{display:flex;align-items:center;gap:8px;padding-left:10px;color:#c5c6cb;font-size:14px}
+.spotify-demo-control select{font:inherit;min-height:44px;max-width:170px;padding:8px 10px;color:#f7f7f8;background:#242528;border:1px solid #ffffff30;border-radius:9px}
+.spotify-demo-control select:focus-visible{outline:2px solid #f7f7f8;outline-offset:3px}
+.preview-tools nav{align-items:center}
+.spotify-notch{position:relative;flex:0 0 360px;width:360px;height:96px}
+.spotify-notch[hidden]{display:none}
+.spotify-notch-link{position:relative;isolation:isolate;display:grid;grid-template-columns:56px minmax(0,1fr)24px;gap:12px;align-items:center;width:100%;height:96px;padding:0 14px;border-radius:48px;color:var(--ink);text-decoration:none;user-select:none}
+.spotify-notch-link::before{content:'';position:absolute;z-index:-1;inset:8px 0;border-radius:42px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.spotify-notch-link:focus{outline:none}
+.spotify-notch-link:focus-visible::before{outline:3px solid var(--focus);outline-offset:5px}
+.spotify-notch-link:active{opacity:.8}
+.spotify-notch-art{position:relative;width:56px;height:56px;flex:none}
+.spotify-notch-art>img{display:block;width:56px;height:56px;object-fit:cover;border-radius:12px}
+.spotify-notch-brand{position:absolute;right:-4px;bottom:-3px;width:23px;height:23px;border:3px solid var(--surface);border-radius:50%;background:#1ed760}
+.spotify-notch-copy{display:flex;flex-direction:column;gap:0;min-width:0;text-align:left}
+.spotify-notch-copy strong{font-size:28px;line-height:31px;font-weight:500;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;letter-spacing:-.015em}
+.spotify-notch-copy>span{font-size:28px;line-height:31px;font-weight:400;color:var(--muted);white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.spotify-notch-levels{display:flex;align-items:center;justify-content:center;gap:4px;height:28px;color:#1ed760}
+.screen[data-theme=light] .spotify-notch-levels{color:#16783b}
+.spotify-notch-levels i{display:block;width:4px;height:24px;border-radius:3px;background:currentColor;transform:scaleY(.4);animation:spotify-level 1100ms ease-in-out infinite;transform-origin:center}
+.spotify-notch-levels i:nth-child(2){transform:scaleY(.85);animation-delay:-370ms}
+.spotify-notch-levels i:nth-child(3){transform:scaleY(.6);animation-delay:-740ms}
+@keyframes spotify-level{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(.85)}}
+.screen.reduced-motion .spotify-notch-levels i{animation:none!important}
+.screen[data-page=lower] .spotify-notch-levels i,.page-content[inert] .spotify-notch-levels i{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.spotify-notch-levels i{animation:none!important}}
+@media(max-width:900px){.spotify-demo-control{padding-left:0;min-height:48px}.spotify-demo-control select{min-height:48px}}

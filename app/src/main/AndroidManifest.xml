@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Android requires location permission to expose the Wi-Fi name. User opt-in from Customize;
+         both permissions are requested together. Forecast city selection does not use GPS. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:ignore="CoarseFineLocation" />
+
+    <!-- Android 11+ package visibility: lets the launcher list the TV apps it shows as tiles, and the
+         apps that declare a module card (docs/specs/card.md). -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+        <intent><action android:name="android.intent.action.VIEW" /><data android:scheme="content" android:host="android.media.tv" /></intent>
+        <intent><action android:name="android.settings.HOME_SETTINGS" /></intent>
+        <intent><action android:name="android.intent.action.VIEW" /><data android:scheme="market" /></intent>
+        <package android:name="com.tcl.tv" />
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="com.gathin.tvhome.category.DOCK_CARD" />
+        </intent>
+        <!-- China-market MIUI TV firmware: the Settings and Wi-Fi pills fall back to Xiaomi's settings app. -->
+        <package android:name="com.xiaomi.mitv.settings" />
+        <package android:name="com.stremio.one" />
+        <package android:name="com.android.vending" />
+        <package android:name="com.spotify.tv.android" />
+        <package android:name="com.tcl.settings" />
+        <intent><action android:name="android.speech.action.RECOGNIZE_SPEECH" /></intent>
+        <intent><action android:name="android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS" /></intent>
+        <intent><action android:name="android.settings.NOTIFICATION_LISTENER_DETAIL_SETTINGS" /></intent>
+    </queries>
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/sg_icon"
+        android:banner="@drawable/sg_banner"
+        android:theme="@style/Theme.TvHome"
+        android:allowBackup="false"
+        android:localeConfig="@xml/locales_config">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:turnScreenOn="true"
+            android:stateNotNeeded="true"
+            android:excludeFromRecents="true"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|uiMode"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- Listed in the TV's own app list, so it can be opened from the stock home screen too. -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".WeatherLocationActivity" android:exported="false" android:theme="@style/Theme.LivingPanel" android:screenOrientation="landscape" />
+        <activity android:name=".SetupActivity" android:exported="false" android:launchMode="singleTop" android:screenOrientation="landscape" />
+        <activity android:name=".StartupSetupActivity" android:exported="false" android:theme="@style/Theme.LivingPanel" android:screenOrientation="landscape" />
+        <activity android:name=".SpotifyAccessActivity" android:exported="false" android:theme="@style/Theme.LivingPanel" android:screenOrientation="landscape" />
+        <service android:name=".NowPlayingAccess" android:label="@string/spotify_access_name" android:exported="true" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter><action android:name="android.service.notification.NotificationListenerService" /></intent-filter>
+        </service>
+        <!-- Opt-in startup only. No key interception, gestures, or window content access. -->
+        <service android:name=".StartupHomeService" android:label="@string/startup_access_name"
+            android:exported="true" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter><action android:name="android.accessibilityservice.AccessibilityService" /></intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/startup_home_service" />
+        </service>
+        <activity android:name=".WeatherActivity" android:exported="false"
+            android:theme="@style/Theme.LivingPanel"
+            android:screenOrientation="landscape" />
+        <activity android:name=".LightsActivity" android:exported="false"
+            android:theme="@style/Theme.LivingPanel"
+            android:screenOrientation="landscape" />
+        <activity android:name=".AppsActivity" android:exported="false"
+            android:theme="@style/Theme.LivingPanel"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".LauncherSettingsActivity"
+            android:theme="@style/Theme.LivingPanel"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="landscape" />
+        <activity android:name=".FavoritesActivity" android:exported="false" android:theme="@style/Theme.LivingPanel"
+            android:screenOrientation="landscape" />
+        <activity android:name=".StremioLinkActivity" android:exported="false" android:theme="@style/Theme.LivingPanel"
+            android:screenOrientation="landscape" />
+        <activity android:name=".InputsActivity" android:exported="false" android:theme="@style/Theme.LivingPanel"
+            android:screenOrientation="landscape" />
+        <!-- Remote Settings button panel (settings_key_panel); own task so the app behind stays put. -->
+        <activity
+            android:name=".QuickSettingsActivity"
+            android:exported="false"
+            android:taskAffinity=""
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".HomeSettingsActivity"
+            android:exported="false"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.NoDisplay" />
+        <!-- Home button for remotes that send KEYCODE_ALL_APPS (Xiaomi). Opt-in: HOME_KEY_SERVICE=1
+             build-and-install.sh; see HomeKeyService. -->
+        <service
+            android:name=".HomeKeyService"
+            android:label="@string/home_key_name"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/home_key_service" />
+        </service>
+
+        <!-- Screensaver: pick it in Settings, or `settings put secure screensaver_components
+             com.gathin.tvhome/.ClockDream` over adb. -->
+        <service
+            android:name=".ClockDream"
+            android:label="@string/dream_name"
+            android:exported="true"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.dreams.DreamService" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <!-- tools/theme.sh writes the theme through this where the shell can't reach Android/data;
+             see ThemeProvider. WRITE_SECURE_SETTINGS: the adb shell has it, ordinary apps don't. -->
+        <provider
+            android:name=".ThemeProvider"
+            android:authorities="${applicationId}.theme"
+            android:exported="true"
+            android:permission="android.permission.WRITE_SECURE_SETTINGS" />
+
+        <!-- The remote's Input button (KEYCODE_TV or KEYCODE_TV_INPUT) opens the input switcher, and input_key_keycodes and
+         app_keys (config.xml or a theme) bring back other remote buttons; see InputKeyService. -->
+        <service
+            android:name=".InputKeyService"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/input_key_service" />
+        </service>
+    </application>
+</manifest>
